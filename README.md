@@ -58,6 +58,53 @@ if err != nil {
 
 ---
 
+## 🖥 Command-Line Interface (CLI)
+
+This library bundles a `c3` command-line tool that provides the same functionality as the Go API methods, useful for scripting and quick operations.
+
+### Installation
+
+If you have Go installed, you can install the CLI via:
+
+```bash
+go install github.com/sethfduke/capsule-crypto/cmd/c3@latest
+```
+
+### Usage
+
+- **Encrypt data**:
+
+  ```bash
+  c3 encrypt --dek <BASE64_DEK> --data "Your plaintext"
+  ```
+
+- **Decrypt data**:
+
+  ```bash
+  c3 decrypt --dek <BASE64_DEK> --nonce <NONCE> --ciphertext <BASE64_CIPHERTEXT>
+  ```
+
+- **Wrap a DEK with a password**:
+
+  ```bash
+  c3 wrap --password "YourPassword" --in <DEK_FILE> --out wrapped.json
+  ```
+
+- **Unwrap a DEK with a password**:
+
+  ```bash
+  c3 unwrap --password "YourPassword" --wrapped <WRAPPED_JSON>
+  ```
+
+- **Encrypt/decrypt files**:
+
+  ```bash
+  c3 encrypt --dek <BASE64_DEK> --in plaintext.txt --out ciphertext.json
+  c3 decrypt --dek <BASE64_DEK> --nonce <NONCE> --ciphertext <BASE64_CIPHERTEXT> --out plaintext.txt
+  ```
+
+---
+
 ## 📚 Example Projects
 
 Explore the `examples/` directory for runnable demonstrations:
